@@ -21,6 +21,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>env: {process.env.REACT_APP_HELLO}</h1>
+        <h1>env 2: {process.env.REACT_APP_HELLO_2}</h1>
         <img src={logo} className="App-logo" alt="logo" />
         <h1>ENV: {process.env.REACT_APP_HELLO}</h1>
         <p className="italic text-3xl">
