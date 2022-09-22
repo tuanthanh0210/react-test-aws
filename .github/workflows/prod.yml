@@ -23,7 +23,6 @@ jobs:
 
         run: | # run with multiple script
           echo "Deploy"
-          cd /home/sotatek
           pwd
           echo "........"
           cd ~/react-test-aws
