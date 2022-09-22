@@ -22,8 +22,8 @@ jobs:
 
         run: | # run with multiple script
           echo "Deploy"
-          cd /root/test
-          git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
+          sudo cd /root/test
+          sudo git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
           cd react-test-aws
           git pull
           printf "${{ secrets.ENV }}" > .env
