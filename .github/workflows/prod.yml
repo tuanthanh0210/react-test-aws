@@ -18,6 +18,7 @@ jobs:
           port: '22' #port of server - often port is 22
           script: | # run with multiple script
             echo "Deploy"
+            pwd
             cd /home/sotatek
             git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
             cd react-test-aws
