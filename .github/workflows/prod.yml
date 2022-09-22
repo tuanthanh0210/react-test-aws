@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
+        uses: actions/checkout@v3
         with:
           host: '13.212.140.80' #hostname of server
           username: 'root' #username login to server
