@@ -16,13 +16,14 @@ jobs:
           node-version: '16'
       - name: Build and Deploy
         env:
-          host: '13.212.140.80' #hostname of server
-          username: 'root' #username login to server
+          host: '172.16.1.221' #hostname of server
+          password: '1'
+          username: 'sotatek' #username login to server
           port: '22' #port of server - often port is 22
 
         run: | # run with multiple script
           echo "Deploy"
-          cd ~/root
+          cd /home/sotatek
           pwd
           echo "........"
           cd ~/react-test-aws
