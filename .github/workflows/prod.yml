@@ -13,9 +13,8 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: '172.16.1.221' #hostname of server
-          username: 'sotatek' #username login to server
-          password: '1' #password login to server
+          host: '13.212.140.80' #hostname of server
+          username: 'root' #username login to server
           port: '22' #port of server - often port is 22
           script: | # run with multiple script
             echo "Deploy"
