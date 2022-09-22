@@ -10,16 +10,28 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: '52.53.222.126' #hostname of server
-          username: 'ubuntu' #username login to server
-          port: '22' #port of server - often port is 22
-          script: | # run with multiple script
-            echo "Deploy"
-            git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
-            cd react-test-aws
+      - uses: actions/checkout@v3
+
+      - name: Build and Deploy
+        env:
+          PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+          HOSTNAME: ${{ secrets.EC2_HOST }}
+          USER_NAME: ${{ secrets.EC2_USER }}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+            PRJ="${{ secrets.EC2_PRJ }}"
+            DIR="${{ secrets.EC2_ROOT_DIR }}/$PRJ"
+
+            if [ ! -d $DIR ]
+            then
+              mkdir ${PRJ} &&
+              git clone ${{ secrets.EC2_HTTP_REPO_URL }} ${PRJ} &&
+            fi
+
+            cd ${PRJ}
+            git checkout master
             git pull
-            printf "${{ secrets.ENV }}" > .env
-            pm2 start app.json
+            pm2 restart deploy.json
+          '

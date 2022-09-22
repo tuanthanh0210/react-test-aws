@@ -21,7 +21,9 @@ function App() {
   console.log(1);
   return (
     <div className="App">
+      <h1>Hello Sotatek</h1>
       <header className="App-header">
+        <h1>Hello</h1>
         <h1>env: {process.env.REACT_APP_HELLO}</h1>
         <h1>env 2: {process.env.REACT_APP_HELLO_2}</h1>
         <img src={logo} className="App-logo" alt="logo" />

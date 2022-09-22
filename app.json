@@ -1,8 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "test-auto-deploy",
-      "script": "yarn && yarn start"
-    }
-  ]
-}

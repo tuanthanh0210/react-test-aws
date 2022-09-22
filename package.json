@@ -24,7 +24,8 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "deploy": "yarn build && make deploy-dev"
   },
   "optionalDependencies": {
     "node-fetch": "^3.0.0"
