@@ -18,6 +18,7 @@ function App() {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log(1);
   return (
     <div className="App">
       <header className="App-header">
