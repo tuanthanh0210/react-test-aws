@@ -10,21 +10,18 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
         with:
-          node-version: '16'
-      - name: Build and Deploy
-        env:
           host: '172.16.1.221' #hostname of server
-          password: '1'
           username: 'sotatek' #username login to server
+          password: '1' #password login to server
           port: '22' #port of server - often port is 22
-
-        run: | # run with multiple script
-          echo "Deploy"
-          pwd
-          echo "........"
-          cd ~/react-test-aws
-          pm2 start app.json
-          echo "Done... !!!!"
+          script: | # run with multiple script
+            echo "Deploy"
+            cd /home/sotatek
+            git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
+            cd react-test-aws
+            git pull
+            printf "${{ secrets.ENV }}" > .env
+            pm2 start app.json
