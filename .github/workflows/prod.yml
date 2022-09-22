@@ -13,13 +13,11 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: '222.252.98.127' #hostname of server
-          username: 'sotatek' #username login to server
-          password: '1' #password login to server
+          host: '52.53.222.126' #hostname of server
+          username: 'ubuntu' #username login to server
           port: '22' #port of server - often port is 22
           script: | # run with multiple script
             echo "Deploy"
-            cd /home/sotatek
             git clone git@github.com:Sotatek-ThanhLe2/react-test-aws.git
             cd react-test-aws
             git pull
