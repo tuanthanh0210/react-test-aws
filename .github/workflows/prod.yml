@@ -22,6 +22,6 @@ jobs:
 
         run: | # run with multiple script
           echo "Deploy"
-          cd react-test-aws
+          cd ~/react-test-aws
           pm2 start app.json
           echo "Done... !!!!"
