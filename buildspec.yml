@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+    pre_build:
+        commands:
+            - echo installing...
+            - npm install
+    build:
+        commands:
+            - echo Building FE ...
+            - npm run build
+    post_build:
+        commands:
+            - echo Pushing FE to S3...
+            - aws s3 sync "./build" "s3://react-thanhlt/"
+            - echo Pushing succeffully
